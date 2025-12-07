@@ -34,9 +34,19 @@ exports.register = async (req, res, next) => {
 
     sendTokenResponse(teacher, 201, res);
   } catch (error) {
+    console.error("Registration error:", error);
+    if (error.name === "ValidationError") {
+      const messages = Object.values(error.errors)
+        .map((val) => val.message)
+        .join(", ");
+      return res.status(400).json({
+        success: false,
+        message: messages || "Validation failed",
+      });
+    }
     res.status(500).json({
       success: false,
-      message: error.message,
+      message: error.message || "Registration failed",
     });
   }
 };
