@@ -8,14 +8,15 @@ const errorHandler = (err, req, res, next) => {
   }
 
   if (err.name === "ValidationError") {
-    error.message = Object.values(err.errors)
+    const messages = Object.values(err.errors)
       .map((val) => val.message)
       .join(", ");
+    error.message = messages || "Validation failed";
     error.statusCode = 400;
   }
 
   if (err.code === 11000) {
-    error.message = `Duplicate field value entered`;
+    error.message = `Email already in use`;
     error.statusCode = 400;
   }
 
