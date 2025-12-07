@@ -21,7 +21,14 @@ const app = express();
 
 // Middleware - CORS configuration for production
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  origin: function (origin, callback) {
+    // Allow requests from Vercel (any subdomain)
+    if (!origin || origin.includes("vercel.app") || origin.includes("localhost")) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all for now
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200,
 };
