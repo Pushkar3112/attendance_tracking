@@ -44,7 +44,7 @@ textarea:focus {
 
 /* -------------------- NAVBAR --------------------- */
 .navbar {
-  width:100%;
+  width: 100%;
   height: var(--nav-height);
   display: flex;
   justify-content: space-between;
@@ -52,15 +52,15 @@ textarea:focus {
   padding: 0 0%;
   position: fixed;
   top: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: 0.3s ease-in-out;
 }
 
 .navbar.scrolled {
-  background: rgba(0,0,0,0.95);
-  box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 .logo {
@@ -95,7 +95,7 @@ textarea:focus {
 /* HOVER BG COLOR */
 .nav-links a:hover,
 .nav-links a:focus {
-  background: #bef701;   
+  background: #bef701;
   color: black;
 }
 
@@ -205,9 +205,63 @@ footer {
   color: var(--accent);
 }
 
+/* -------------------- SAMPLE CREDENTIALS -------------------- */
+.sample-credentials {
+  margin-top: 50px;
+  padding: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 195, 255, 0.1),
+    rgba(255, 0, 76, 0.1)
+  );
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+  animation: slideUp 0.8s ease-out;
+}
+
+.sample-credentials h3 {
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.credentials-box {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid var(--accent);
+}
+
+.credentials-box p {
+  margin: 12px 0;
+  font-size: 1.05rem;
+}
+
+.credentials-box code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: var(--primary);
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.credentials-hint {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
 /* -------------------- MOBILE VIEW -------------------- */
 @media (max-width: 850px) {
-
   .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -242,6 +296,29 @@ footer {
   .nav-btn {
     width: 70%;
     text-align: center;
+  }
+
+  .sample-credentials {
+    max-width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .sample-credentials h3 {
+    font-size: 1.1rem;
+  }
+
+  .credentials-box {
+    padding: 15px;
+  }
+
+  .credentials-box p {
+    font-size: 0.95rem;
+  }
+
+  .credentials-box code {
+    padding: 4px 8px;
+    font-size: 0.9rem;
   }
 }
 

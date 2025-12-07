@@ -77,9 +77,7 @@ export default function Landing() {
         {/* Hamburger */}
         <div
           className="menu-toggle"
-          onClick={() =>
-            navControllerRef.current.toggleMenu(menuOpen)
-          }
+          onClick={() => navControllerRef.current.toggleMenu(menuOpen)}
         >
           <span></span>
           <span></span>
@@ -90,8 +88,12 @@ export default function Landing() {
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           <a href="#home">Home</a>
           <a href="#footer">Contact</a>
-          <a href="/login" className="nav-btn">Login</a>
-          <a href="/register" className="nav-btn signup">Register</a>
+          <a href="/login" className="nav-btn">
+            Login
+          </a>
+          <a href="/register" className="nav-btn signup">
+            Register
+          </a>
         </div>
       </nav>
 
@@ -99,7 +101,8 @@ export default function Landing() {
       <section id="home" className="hero">
         <div>
           <h1>
-            Smart Attendance<br />
+            Smart Attendance
+            <br />
             <span className="grad">Management System</span>
           </h1>
 
@@ -111,6 +114,22 @@ export default function Landing() {
           <div className="hero-buttons">
             <a href="/login">Login Securely</a>
             <a href="/register">Register</a>
+          </div>
+
+          {/* Sample Login Credentials */}
+          <div className="sample-credentials">
+            <h3>📝 Try Demo Account</h3>
+            <div className="credentials-box">
+              <p>
+                <strong>Email:</strong> <code>john@example.com</code>
+              </p>
+              <p>
+                <strong>Password:</strong> <code>password123</code>
+              </p>
+            </div>
+            <p className="credentials-hint">
+              Use these credentials to explore the system
+            </p>
           </div>
         </div>
       </section>
