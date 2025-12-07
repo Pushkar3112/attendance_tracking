@@ -22,14 +22,25 @@ const app = express();
 // Middleware - CORS configuration for production
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests from Vercel (any subdomain)
-    if (!origin || origin.includes("vercel.app") || origin.includes("localhost")) {
-      callback(null, true);
+    // Remove trailing slash from origin
+    const cleanOrigin = origin ? origin.replace(/\/$/, "") : origin;
+
+    // Allow all origins from Vercel, localhost, and your domain
+    if (
+      !cleanOrigin ||
+      cleanOrigin.includes("vercel.app") ||
+      cleanOrigin.includes("localhost") ||
+      cleanOrigin.includes("hospital-mangement-system")
+    ) {
+      callback(null, cleanOrigin || "*");
     } else {
-      callback(null, true); // Allow all for now
+      // Allow all as fallback
+      callback(null, true);
     }
   },
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
